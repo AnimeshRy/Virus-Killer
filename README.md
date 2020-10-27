@@ -1,5 +1,6 @@
 # Virus Killer Pygame
-<img src ="https://user-images.githubusercontent.com/54435702/79914497-06347d80-8443-11ea-8283-2457f9ad82d4.PNG" width ="300" height="240" />
+<img src ="results/res.png
+" width ="300" height="240" />
 
 [![Language](https://img.shields.io/badge/language-python-blue.svg?style=flat)](https://www.python.org)
 [![Module](https://img.shields.io/badge/module-pygame-brightgreen.svg?style=flat)](http://www.pygame.org/news.html)
@@ -7,23 +8,53 @@
 
  ## Prerequisites to run the game:
  
- + Python 3 
+ + Python 3.5+
  + Pygame Module Installed 
 
 ### Overview 
-This is my first game made with python, also wanted to understand the OOP paradigm so had too much of extra pyfiles after refactoring to keep the size of the main file less and easy to understand. 
+Covid19 has been hard on everyone and I couldn't come up with a theme for a new game so here it is. Virus Killer is a space shooter with the theme based on the ongoing Corona Virus.
 
-The game is a simple one which offers 3 lives to the player and speeds up if you complete a level, the second top right counter is the level indicator and the top right is the current score indicator. The middle is the highscore indicator among the 3 lives you get. 
+To game is pretty simple, Shoot the Viruses floating in a zig-zag manner with the sanitizer bottle which destroys them unless the virus hits the bottle first and your chance ends.
 
-The game would get impossible to beat as the time succeeds though but it feels a lot of fun! 
- 
-All the Game Settings can be changed according to the player with the settings file included. 
+- The Top left corner depicts the number of lives/chances the player has until the virus catches up to him.
+- The Top Right contains the score of the current player.
+- The lower column in the top right contains the level the player is at.
+- The middle score is the high score indicator among the three lives you get.
 
-### How To Run
-Clone the repo with and run the 'main' file. 
 
-### LINKS
+### To Run
+```
+$ git clone https://github.com/AnimeshRy/Virus-Killer
+$ pip3 install -r requirements.txt
+pip3 main.py
+```
+
+### Information
 [Leerob Space Invaders](https://leerob.io/blog/space-invaders-with-python)
+
 [Pygame Docs ](https://www.pygame.org/docs/ref/pygame.html#pygame.init)
 
-## I Hope You Enjoy!
+## LICENCE
+
+MIT License
+
+Copyright (c) 2020 Animesh 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
