@@ -1,6 +1,5 @@
 # Virus Killer Pygame
-<img src ="results/res.png
-" width ="300" height="240" />
+<img src ="https://user-images.githubusercontent.com/54435702/79914497-06347d80-8443-11ea-8283-2457f9ad82d4.PNG" width ="300" height="240" />
 
 [![Language](https://img.shields.io/badge/language-python-blue.svg?style=flat)](https://www.python.org)
 [![Module](https://img.shields.io/badge/module-pygame-brightgreen.svg?style=flat)](http://www.pygame.org/news.html)
