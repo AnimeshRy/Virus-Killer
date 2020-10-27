@@ -19,6 +19,7 @@ To game is pretty simple, Shoot the Viruses floating in a zig-zag manner with th
 - The Top Right contains the score of the current player.
 - The lower column in the top right contains the level the player is at.
 - The middle score is the high score indicator among the three lives you get.
+- The speed of the virus and bottle can be customized inside the `resources/settings.py` file.
 
 
 ### To Run
