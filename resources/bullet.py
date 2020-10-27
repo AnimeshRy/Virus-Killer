@@ -10,15 +10,13 @@ class Bullet(Sprite):
         super().__init__()
         self.screen = screen
 
-    # create a bullet rect at position (0,0) and then correct it's position
-        self.rect = pygame.Rect(
-            0, 0, st_settings.bullet_width, st_settings.bullet_height)
+        # create a bullet rect at position (0,0) and then correct it's position
+        self.rect = pygame.Rect(0, 0, st_settings.bullet_width, st_settings.bullet_height)
         self.rect.centerx = sanit.rect.centerx
         self.rect.top = sanit.rect.top
 
-    # store bullet position as a decimal value
+        # store bullet position as a decimal value
         self.y = float(self.rect.y)
-
         self.color = st_settings.bullet_color
         self.speed_factor = st_settings.bullet_speed_factor
 

@@ -7,12 +7,13 @@ class Virus(Sprite):
 
     def __init__(self, st_settings, screen):
         """Initialize the virus and set it's starting postion"""
+
         super().__init__()
         self.screen = screen
         self.st_settings = st_settings
 
         # load the virus image and set it's attribute
-        self.image = pygame.image.load("images/virus_obj_small.bmp")
+        self.image = pygame.image.load("./media/virus_obj_small.bmp")
         self.rect = self.image.get_rect()
 
         # start the virus at the top left corner
@@ -28,8 +29,7 @@ class Virus(Sprite):
 
     def update(self):
         """update the position of virus"""
-        self.x += (self.st_settings.virus_speed_factor *
-                   self.st_settings.fleet_direction)
+        self.x += (self.st_settings.virus_speed_factor * self.st_settings.fleet_direction)
         self.rect.x = self.x
 
     def check_edges(self):

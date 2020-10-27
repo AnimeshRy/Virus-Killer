@@ -1,6 +1,6 @@
 import pygame.font
 from pygame.sprite import Group
-from sanitizer import Sanitizer
+from .sanitizer import Sanitizer
 
 
 class ScoreBoard():
@@ -22,6 +22,7 @@ class ScoreBoard():
 
     def prep_score(self):
         # round the score to the nearest 10s value
+
         rounded_score = int(round(self.stats.score, -1))
         score_str = "{:,}".format(rounded_score)
         self.score_image = self.font.render(
@@ -30,6 +31,7 @@ class ScoreBoard():
         # display the score on the top right of the screen
         self.score_image_rect = self.score_image.get_rect()
         self.score_image_rect.right = self.screen_rect.right
+
         # place the image 20 pixels from the top
         self.score_image_rect.top = 5
 
@@ -37,11 +39,13 @@ class ScoreBoard():
         self.screen.blit(self.score_image, self.score_image_rect)
         self.screen.blit(self.high_score_image, self.high_score_image_rect)
         self.screen.blit(self.level_image, self.level_image_rect)
+
         # draw bottles on the screen - call draw on the group
         self.bottle.draw(self.screen)
 
     def prep_highscore(self):
         """turn the highscore to an image """
+
         highscore = int(round(self.stats.high_score, -1))
         high_score_str = "{:,}".format(highscore)
         self.high_score_image = self.font.render(
@@ -63,6 +67,7 @@ class ScoreBoard():
 
     def prep_bottles(self):
         """Show how many bottles are left"""
+        
         self.bottle = Group()
         for bottle_number in range(self.stats.bottle_left):
             bottle = Sanitizer(self.st_settings, self.screen)
