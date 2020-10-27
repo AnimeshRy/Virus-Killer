@@ -19,7 +19,7 @@ def check_keydown_events(event, st_settings, screen, stats, sanit, bullets):
         sys.exit()
     elif event.key == pygame.K_p:
         stats.game_active = True
-        pygame.mixer.music.load('./music/bg.wav')
+        pygame.mixer.music.load('../music/bg.wav')
         pygame.mixer.music.play(-1)
 
 
@@ -58,7 +58,7 @@ def check_play_button(st_settings, screen, stats, play_button, sanit, sb, viruse
     - it checks if the mouse poistion is overlaping the the play_button rect
     - music load """
     
-    pygame.mixer.music.load('./music/bg.wav')
+    pygame.mixer.music.load('../music/bg.wav')
     click_button = play_button.rect.collidepoint(mouse_x, mouse_y)
 
     if click_button and not stats.game_active:
