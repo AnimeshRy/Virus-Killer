@@ -1,14 +1,13 @@
 import sys
-
 import pygame
-
-from bullet import Bullet
-from virus import Virus
+from .bullet import Bullet
+from .virus import Virus
 from time import sleep
 
 
 def check_keydown_events(event, st_settings, screen, stats, sanit, bullets):
     """Respond to keypresses."""
+
     if event.key == pygame.K_RIGHT:
         sanit.moving_right = True
     elif event.key == pygame.K_LEFT:
@@ -20,10 +19,13 @@ def check_keydown_events(event, st_settings, screen, stats, sanit, bullets):
         sys.exit()
     elif event.key == pygame.K_p:
         stats.game_active = True
+        pygame.mixer.music.load('bg_music(1).wav')
+        pygame.mixer.music.play(-1)
 
 
 def check_keyup_events(event, sanit):
     """Respoond to leaving key."""
+    
     if event.key == pygame.K_RIGHT:
         sanit.moving_right = False
     elif event.key == pygame.K_LEFT:
@@ -32,6 +34,7 @@ def check_keyup_events(event, sanit):
 
 def check_events(st_settings, screen, stats, play_button, sb, sanit, viruses, bullets):
     """Respond to key press and mouse"""
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -40,26 +43,33 @@ def check_events(st_settings, screen, stats, play_button, sb, sanit, viruses, bu
             # mouse.gte_pos() gets a tuple of the mouse's x and y coordinate values
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_play_button(st_settings, screen, stats,
-                              play_button, sanit, sb, viruses, bullets, mouse_x, mouse_y)
+                            play_button, sanit, sb, viruses, bullets, mouse_x, mouse_y)
+
         # each key is registered as a keydown
         elif event.type == pygame.KEYDOWN:
             check_keydown_events(event, st_settings,
-                                 screen, stats, sanit, bullets)
+                                screen, stats, sanit, bullets)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, sanit)
 
 
 def check_play_button(st_settings, screen, stats, play_button, sanit, sb, viruses, bullets, mouse_x, mouse_y):
-    """Start a new game when player click play"""
-    # it check if the mouse poistion is overlaping the the play_button rect
+    """ Start a new game when player click play
+    - it checks if the mouse poistion is overlaping the the play_button rect
+    - music load """
+    # 
     pygame.mixer.music.load('bg_music(1).wav')
     click_button = play_button.rect.collidepoint(mouse_x, mouse_y)
+
     if click_button and not stats.game_active:
         pygame.mixer.music.play(-1)
+
         # reset the game to level 1
         st_settings.initialize_dynamic_settings()
+
         # make the mouse not visible
         pygame.mouse.set_visible(False)
+
         # reset the game again
         stats.reset_stats()
         stats.game_active = True
@@ -69,9 +79,11 @@ def check_play_button(st_settings, screen, stats, play_button, sanit, sb, viruse
         sb.prep_level()
         sb.prep_score()
         sb.prep_bottles()
+
         # empty the virus and bullets
         viruses.empty()
         bullets.empty()
+
         # make a new fleep and center the sanit
         create_fleet(st_settings, screen, sanit, viruses)
         sanit.center_bottle()
@@ -81,9 +93,11 @@ def check_play_button(st_settings, screen, stats, play_button, sanit, sb, viruse
 
 
 def fire_bullets(st_settings, screen, sanit, bullets):
-    """Fire a bullet if limit not reached yet."""
-    # create a new bullet to add to the game when you press space and add it to the group 'bullets'
-    # new functionality - limiting the number of bullets to keep the game optimized
+    """ Fire a bullet if limit not reached yet.
+    - create a new bullet to add to the game when you press space and add it to the group 'bullets'
+    - new functionality - limiting the number of bullets to keep the game optimized
+    """
+
     if len(bullets) < st_settings.bullet_allowed:
         new_bullet = Bullet(st_settings, screen, sanit)
         bullets.add(new_bullet)
