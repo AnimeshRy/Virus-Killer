@@ -29,7 +29,10 @@ $ pip3 install -r requirements.txt
 pip3 main.py
 ```
 
-### Information
+### Resources and Information
+
+Windows Executable is added in Release
+
 [Leerob Space Invaders](https://leerob.io/blog/space-invaders-with-python)
 
 [Pygame Docs ](https://www.pygame.org/docs/ref/pygame.html#pygame.init)
